@@ -1,0 +1,14 @@
+.cart {
+  cursor: pointer;
+}
+.basket {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.span {
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}

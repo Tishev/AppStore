@@ -1,0 +1,20 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.p {
+  margin: 20px 0;
+  font-size: 18px;
+  font-family: 'Gluten';
+}
+.pName {
+  margin: 20px 0;
+  font-size: 18px;
+  font-family: 'Gluten';
+  width: 180px;
+}
+.close {
+  cursor: pointer;
+}

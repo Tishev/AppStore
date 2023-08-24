@@ -1,0 +1,14 @@
+.items {
+  background-color: rgb(254, 71, 71);
+  color: rgb(107, 105, 105);
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: -7px;
+  right: 110px;
+  z-index: 2;
+}
