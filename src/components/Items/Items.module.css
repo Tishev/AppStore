@@ -9,3 +9,9 @@
   row-gap: 20px;
   flex-wrap: wrap;
 }
+.sortBtn {
+  max-width: 500px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}

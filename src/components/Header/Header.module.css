@@ -23,7 +23,7 @@
 }
 .li {
   cursor: pointer;
-
+  color: black;
   font-family: 'DM Sans';
   font-size: 18px;
   font-weight: 700;
