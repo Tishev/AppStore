@@ -8,20 +8,24 @@ import { items } from '../../data/items';
 import Select from '../Select/Select';
 import ButtonSort from '../UI/ButtonSort';
 const Items = () => {
-  const [item, setItem] = useState(items);
-  const { isDescSort, setIsDescSort, sortedItems } = useSort(items || []);
-  return (
-    <>
-      <div className={styles.sortBtn}>
-        <Select />
-        <ButtonSort isDescSort={isDescSort} setIsDescSort={setIsDescSort} />
-      </div>
+    const [item, setItem] = useState(items);
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    const { isDescSort, setIsDescSort, sortedItems } = useSort(items || []);
+    return (
+        <>
+            <div className={styles.sortBtn}>
+                <Select setSelectedCategory={setSelectedCategory} />
+                <ButtonSort isDescSort={isDescSort} setIsDescSort={setIsDescSort} />
+            </div>
 
-      <div className={styles.items}>
-        {sortedItems && sortedItems.map((item) => <Item key={item.id} item={item} />)}
-      </div>
-    </>
-  );
+            <div className={styles.items}>
+                {sortedItems &&
+                    sortedItems
+                        .filter((product) => product.category === selectedCategory)
+                        .map((item) => <Item key={item.id} item={item} />)}
+            </div>
+        </>
+    );
 };
 
 export default Items;
