@@ -1,0 +1,30 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 150px;
+}
+.span {
+  position: absolute;
+  top: 10px;
+  left: 185px;
+  cursor: pointer;
+  color: rgb(78, 78, 90);
+  font-size: 16px;
+}
+.selectCategory {
+  padding: 10px 15px;
+  width: 250px;
+  border: 1px solid #ddd9d9;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 200ms;
+}
+.selectCategory:hover {
+  background-color: #ddd9d9;
+}
+.divPosition {
+  position: absolute;
+  top: 42px;
+  left: 0;
+}
