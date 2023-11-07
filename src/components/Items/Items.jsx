@@ -14,14 +14,20 @@ const Items = () => {
     return (
         <>
             <div className={styles.sortBtn}>
-                <Select setSelectedCategory={setSelectedCategory} />
+                <Select
+                    selectedCategory={selectedCategory}
+                    setSelectedCategory={setSelectedCategory}
+                />
                 <ButtonSort isDescSort={isDescSort} setIsDescSort={setIsDescSort} />
             </div>
 
             <div className={styles.items}>
                 {sortedItems &&
                     sortedItems
-                        .filter((product) => product.category === selectedCategory)
+                        .filter(
+                            (product) =>
+                                selectedCategory === null || product.category === selectedCategory,
+                        )
                         .map((item) => <Item key={item.id} item={item} />)}
             </div>
         </>

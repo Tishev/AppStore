@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import styles from '../Select/Select.module.css';
-const Select = ({ setSelectedCategory }) => {
+const Select = ({ selectedCategory, setSelectedCategory }) => {
     const [visible, setVisible] = useState(false);
     const changeVisible = () => {
         setVisible(!visible);
+    };
+    const selectCategory = (category) => {
+        setSelectedCategory(category);
+        setVisible(false);
     };
     return (
         <div className={styles.select}>
@@ -11,23 +15,18 @@ const Select = ({ setSelectedCategory }) => {
                 Выберите категорию
             </div>
             <div onClick={changeVisible} className={styles.span}>
-                {!visible ? 'open' : 'close'}
+                {/* {!visible ? 'open' : 'close'} */}
+                {selectedCategory ? selectedCategory.toUpperCase() : ''}
             </div>
             {visible && (
                 <div className={styles.divPosition}>
-                    <div onClick={() => setSelectedCategory('')} className={styles.selectCategory}>
+                    <div onClick={() => selectCategory(null)} className={styles.selectCategory}>
                         All
                     </div>
-                    <div
-                        onClick={() => setSelectedCategory('phone')}
-                        className={styles.selectCategory}
-                    >
+                    <div onClick={() => selectCategory('phone')} className={styles.selectCategory}>
                         Phone
                     </div>
-                    <div
-                        onClick={() => setSelectedCategory('laptop')}
-                        className={styles.selectCategory}
-                    >
+                    <div onClick={() => selectCategory('laptop')} className={styles.selectCategory}>
                         Laptop
                     </div>
                 </div>
