@@ -7,7 +7,7 @@ const CartMenu = ({ items, onClick }) => {
     const [popupOrder, setPopupOrder] = useState(false);
     return (
         <div className={styles.cartMenu}>
-            {popupOrder && <PopupOrder setPopupOrder={setPopupOrder} />}
+            {/* {popupOrder && <PopupOrder setPopupOrder={setPopupOrder} />} */}
 
             <div className={styles.cartMenuGamesList}>
                 {items.length > 0

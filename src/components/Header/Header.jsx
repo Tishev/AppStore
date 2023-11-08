@@ -3,23 +3,28 @@ import styles from '../Header/Header.module.css';
 import { Link } from 'react-router-dom';
 import ShoppingBasket from '../UI/ShoppingBasket';
 import { paths } from '../../paths/paths';
+import SearchBar from '../SearchBar/SearchBar';
 const Header = () => {
     return (
         <div className={styles.header}>
-            <Link to={paths.home}>
-                <p className={styles.p}>ITishevStore</p>
-            </Link>
-            <nav className={styles.nav}>
-                <ul className={styles.ul}>
+            <div className="container">
+                <div className={styles.content}>
                     <Link to={paths.home}>
-                        <li className={styles.li}>Главная</li>
+                        <p className={styles.p}>ITishevStore</p>
                     </Link>
-                    <Link to={paths.catalog}>
-                        <li className={styles.li}>Магазин</li>
-                    </Link>
-                </ul>
-                <ShoppingBasket />
-            </nav>
+                    <nav className={styles.nav}>
+                        <ul className={styles.ul}>
+                            <Link to={paths.home}>
+                                <li className={styles.li}>Главная</li>
+                            </Link>
+                            <Link to={paths.catalog}>
+                                <li className={styles.li}>Каталог</li>
+                            </Link>
+                        </ul>
+                        <ShoppingBasket />
+                    </nav>
+                </div>
+            </div>
         </div>
     );
 };

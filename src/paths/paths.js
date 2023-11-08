@@ -1,4 +1,5 @@
 export const paths = {
-  home: '/',
-  catalog: '/catalog',
+    home: '/',
+    catalog: '/catalog',
+    product: '/product',
 };

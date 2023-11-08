@@ -1,0 +1,61 @@
+.text {
+    color: black;
+    font-size: 24px;
+    padding-top: 20px;
+}
+
+.item {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    border: 1px solid #c1b6b6;
+    border-radius: 15px;
+    padding: 35px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.img {
+    width: 40vw;
+    aspect-ratio: 4/3;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #bcbcbc;
+    background-position: center center;
+}
+.left {
+    width: 50vw;
+    padding: 0 40px 0 0;
+    border-right: 1px solid #c1b6b6;
+    display: flex;
+    flex-direction: column;
+}
+.right {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.descr {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+h2 {
+    color: rebeccapurple;
+    margin-bottom: 20px;
+    font-family: 'Gluten';
+    font-size: 36px;
+}
+p {
+    margin-bottom: 20px;
+    font-family: 'Gluten';
+    font-size: 24px;
+}
+li {
+    margin-bottom: 10px;
+    font-family: 'Gluten';
+    font-size: 24px;
+}

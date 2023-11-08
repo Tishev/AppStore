@@ -1,14 +1,14 @@
 .cart {
-  cursor: pointer;
+    cursor: pointer;
 }
 .basket {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
 }
 .span {
-  width: 120px;
-  display: flex;
-  justify-content: center;
-  align-self: center;
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }
