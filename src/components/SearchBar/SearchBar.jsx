@@ -21,10 +21,8 @@ const SearchBar = ({ products, setProducts }) => {
                 product.name.toLowerCase().includes(term.toLowerCase()),
             );
 
-            // Обновляем список товаров в компоненте Items на основе результатов поиска
             setProducts(results);
 
-            // Дополнительно, вы можете также обновить список товаров в состоянии компонента SearchBar
             setSearchResults(results);
         }
     };
