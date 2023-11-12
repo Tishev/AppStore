@@ -13,13 +13,11 @@ const Product = () => {
 
     return (
         <>
-            <Header />
             {selectedProduct ? (
                 <ProductItem id={itemId} item={selectedProduct} />
             ) : (
                 <div>Товар не найден</div>
             )}
-            <Footer />
         </>
     );
 };

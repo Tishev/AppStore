@@ -6,9 +6,7 @@ import Footer from '../components/Footer/Footer';
 const Catalog = () => {
     return (
         <>
-            <Header />
             <Items />
-            <Footer />
         </>
     );
 };

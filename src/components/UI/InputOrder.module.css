@@ -1,0 +1,33 @@
+.input {
+    margin-top: 5px;
+    cursor: text;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    transition: 0.5s;
+}
+.input:focus {
+    border-color: #007bff; /* Цвет рамки при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Тень при фокусе */
+    outline: none;
+}
+
+.inputNumber {
+    margin-top: 5px;
+
+    width: 162px;
+    cursor: text;
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+
+    transition: 0.5s;
+}
+.inputNumber:focus {
+    border-color: #007bff; /* Цвет рамки при фокусе */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Тень при фокусе */
+    outline: none;
+}

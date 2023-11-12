@@ -1,0 +1,50 @@
+.form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+}
+.rowInputs {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.btn {
+    font-size: 16px;
+    color: antiquewhite;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 15px 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: rgb(150, 71, 224);
+    width: 150px;
+    transition: 0.4s ease;
+}
+.btn:hover {
+    background-color: rgb(116, 23, 203);
+    color: rgb(237, 233, 228);
+    scale: 1.03;
+}
+.bottom {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.textStar {
+    font-size: 12px;
+    color: gray;
+}

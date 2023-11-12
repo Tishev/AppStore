@@ -7,7 +7,7 @@ const CartMenu = ({ items, onClick }) => {
     const [popupOrder, setPopupOrder] = useState(false);
     return (
         <div className={styles.cartMenu}>
-            {/* {popupOrder && <PopupOrder setPopupOrder={setPopupOrder} />} */}
+            {popupOrder && <PopupOrder setPopupOrder={setPopupOrder} />}
 
             <div className={styles.cartMenuGamesList}>
                 {items.length > 0
@@ -22,9 +22,9 @@ const CartMenu = ({ items, onClick }) => {
                     : 'Корзина пуста'}{' '}
                 {items.length > 0 ? (
                     <div className={styles.cartMenuArrange}>
-                        <div className={styles.cartMenuTotalPrice}>
-                            {/* <span className={styles.span}>{items.map((item) => item.name)}</span> */}
-                        </div>
+                        {/* <div className={styles.cartMenuTotalPrice}>
+                            <span className={styles.span}>{items.map((item) => item.name)}</span>
+                        </div> */}
                         <span className={styles.spanTwo}>Итого: {calcTotalPrice(items)} руб.</span>
                         <button className={styles.btn} onClick={() => setPopupOrder(true)}>
                             Оформить заказ
