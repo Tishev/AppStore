@@ -15,10 +15,10 @@ const Header = () => {
                     <nav className={styles.nav}>
                         <ul className={styles.ul}>
                             <Link to={paths.home}>
-                                <li className={styles.li}>Главная</li>
+                                <li className={styles.li}>Home</li>
                             </Link>
                             <Link to={paths.catalog}>
-                                <li className={styles.li}>Каталог</li>
+                                <li className={styles.li}>Catalog</li>
                             </Link>
                         </ul>
                         <ShoppingBasket />

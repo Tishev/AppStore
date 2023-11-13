@@ -1,0 +1,61 @@
+.footer {
+    background-color: rgb(3, 3, 3);
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    padding: 30px 0;
+    font-style: 'Gluten';
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+.h2 {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+.img {
+    height: 75px;
+    width: 80px;
+}
+.imgStore {
+    height: 150px;
+    width: 225px;
+}
+
+.ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.ulPay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+}
+.li {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+.liContacts {
+    margin-bottom: 0;
+    cursor: pointer;
+    padding-bottom: 15px;
+    transition: 0.5s ease-in-out;
+}
+.liContacts:hover {
+    color: blueviolet;
+    transform: scale(1.03);
+}
+.liStore {
+    margin-bottom: 0;
+    height: 150px;
+    width: 225px;
+}
+.applications {
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

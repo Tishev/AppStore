@@ -23,7 +23,6 @@ const Promo = () => {
         <div className="container">
             <section className={styles.section}>
                 <Carousel salePhoto={salePhoto} />
-                <div className={styles.div}></div>
             </section>
         </div>
     );
