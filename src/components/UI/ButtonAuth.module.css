@@ -1,0 +1,21 @@
+.btn {
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+    background-color: rgb(205, 252, 135);
+    color: rgb(7, 6, 6);
+    border: none;
+    box-shadow: var(--shadow);
+    border-radius: 15px;
+    transition: transform 400ms ease-in;
+}
+
+.btn:hover {
+    color: rgb(72, 72, 72);
+    transform: scale(1.02);
+    background-color: rgb(213, 246, 165);
+}

@@ -28,6 +28,7 @@
 }
 .ul {
     display: flex;
+
     align-items: center;
     column-gap: 15px;
     padding-right: 20px;
@@ -35,11 +36,30 @@
 .li {
     cursor: pointer;
     color: black;
-    font-family: 'DM Sans';
+    font-family: 'Gluten';
     font-size: 18px;
     font-weight: 700;
     transition: 500ms;
+    position: relative;
     &:hover {
         opacity: 0.5;
     }
+}
+/* .liActive {
+    content: '';
+    border-bottom: 2px solid gray;
+    padding-bottom: 3px;
+    display: block;
+    transition: border-color 0.3s ease;
+} */
+.li:focus::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    border-bottom: 2px solid gray;
+    display: block;
+    transition: border-color 0.3s ease;
+    outline: none; /* Убираем стандартное подчеркивание при фокусе */
 }

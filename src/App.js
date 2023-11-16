@@ -8,6 +8,7 @@ import Catalog from './pages/Catalog';
 import Product from './pages/Product';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
+import AuthPage from './pages/AuthPage';
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path={paths.home} element={<Home />} />
                     <Route path={paths.catalog} element={<Catalog />} />
                     <Route path={paths.product + '/:id'} element={<Product />} />
+                    <Route path={paths.login} element={<AuthPage />} />
                 </Routes>
                 <Footer />
             </Router>

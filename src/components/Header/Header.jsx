@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../Header/Header.module.css';
 import { Link } from 'react-router-dom';
 import ShoppingBasket from '../UI/ShoppingBasket';
 import { paths } from '../../paths/paths';
-import SearchBar from '../SearchBar/SearchBar';
 const Header = () => {
     return (
         <div className={styles.header}>
@@ -15,10 +14,19 @@ const Header = () => {
                     <nav className={styles.nav}>
                         <ul className={styles.ul}>
                             <Link to={paths.home}>
-                                <li className={styles.li}>Home</li>
+                                <li tabIndex={0} className={styles.li}>
+                                    Home
+                                </li>
                             </Link>
                             <Link to={paths.catalog}>
-                                <li className={styles.li}>Catalog</li>
+                                <li tabIndex={0} className={styles.li}>
+                                    Catalog
+                                </li>
+                            </Link>
+                            <Link to={paths.login}>
+                                <li tabIndex={0} className={styles.li}>
+                                    Log in / Sign up
+                                </li>
                             </Link>
                         </ul>
                         <ShoppingBasket />

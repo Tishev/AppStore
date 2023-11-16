@@ -14,10 +14,10 @@ const ProductItem = ({ item }) => {
 
                         <h2>Характеристики товара:</h2>
                         <ul>
-                            <li>
+                            <li className={styles.li}>
                                 <b>Дисплей:</b> {item.chara.display}
                             </li>
-                            <li>
+                            <li className={styles.li}>
                                 <b>Процессор:</b> {item.chara.processor}
                             </li>
                         </ul>
