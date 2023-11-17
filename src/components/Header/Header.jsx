@@ -3,7 +3,14 @@ import styles from '../Header/Header.module.css';
 import { Link } from 'react-router-dom';
 import ShoppingBasket from '../UI/ShoppingBasket';
 import { paths } from '../../paths/paths';
+import { useDispatch, useSelector } from 'react-redux';
+import { Logout } from '@mui/icons-material';
+import { deleteUser } from '../../redux/user/reducer';
 const Header = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
+    const userLocal = JSON.parse(localStorage.getItem('user'));
+    console.log(userLocal);
     return (
         <div className={styles.header}>
             <div className="container">
@@ -23,11 +30,20 @@ const Header = () => {
                                     Catalog
                                 </li>
                             </Link>
-                            <Link to={paths.login}>
-                                <li tabIndex={0} className={styles.li}>
-                                    Log in / Sign up
-                                </li>
-                            </Link>
+                            {userLocal && Object.keys(userLocal).length !== 0 ? (
+                                <Link to={'/profile'}>
+                                    <li tabIndex={0} className={styles.li}>
+                                        {userLocal.emailValue}
+                                    </li>
+                                    <span>{<Logout onClick={() => dispatch(deleteUser())} />}</span>
+                                </Link>
+                            ) : (
+                                <Link to={paths.login}>
+                                    <li tabIndex={0} className={styles.li}>
+                                        Log in / Sign up
+                                    </li>
+                                </Link>
+                            )}
                         </ul>
                         <ShoppingBasket />
                     </nav>
