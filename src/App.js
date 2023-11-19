@@ -9,8 +9,11 @@ import Product from './pages/Product';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import AuthPage from './pages/AuthPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
+    const userLocal = JSON.parse(localStorage.getItem('user'));
+
     return (
         <Provider store={store}>
             <Router>
@@ -20,6 +23,10 @@ function App() {
                     <Route path={paths.catalog} element={<Catalog />} />
                     <Route path={paths.product + '/:id'} element={<Product />} />
                     <Route path={paths.login} element={<AuthPage />} />
+                    <Route
+                        path={paths.profile + '/' + userLocal.emailValue}
+                        element={<ProfilePage user={userLocal.emailValue} />}
+                    />
                 </Routes>
                 <Footer />
             </Router>

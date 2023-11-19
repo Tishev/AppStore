@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import InputOrder from '../../UI/InputOrder';
 import styles from './Login.module.css';
 import ButtonAuth from '../../UI/ButtonAuth';
+import { useDispatch } from 'react-redux';
+import { getUser } from '../../../redux/user/reducer';
 const Login = () => {
+    const dispatch = useDispatch();
     const [emailValue, setEmailValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
 
@@ -11,6 +14,7 @@ const Login = () => {
         //тут отправляем на сервер
         const userInfo = { emailValue, passwordValue };
         console.log('Send on server LOGIN', userInfo);
+        dispatch(getUser(userInfo));
         setEmailValue('');
         setPasswordValue('');
     };

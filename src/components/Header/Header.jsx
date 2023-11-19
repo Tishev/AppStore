@@ -31,11 +31,15 @@ const Header = () => {
                                 </li>
                             </Link>
                             {userLocal && Object.keys(userLocal).length !== 0 ? (
-                                <Link to={'/profile'}>
-                                    <li tabIndex={0} className={styles.li}>
-                                        {userLocal.emailValue}
+                                <Link to={`${paths.profile}/${userLocal.emailValue}`}>
+                                    <li className={styles.liDF}>
+                                        <div className={styles.li} tabIndex={0}>
+                                            {userLocal.emailValue}
+                                        </div>
+                                        <span style={{ margin: '0 8px' }}>
+                                            {<Logout onClick={() => dispatch(deleteUser())} />}
+                                        </span>
                                     </li>
-                                    <span>{<Logout onClick={() => dispatch(deleteUser())} />}</span>
                                 </Link>
                             ) : (
                                 <Link to={paths.login}>
