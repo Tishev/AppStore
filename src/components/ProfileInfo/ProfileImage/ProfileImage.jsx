@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './ProfileImage.module.scss';
 import profIcon from '../../../assets/img/profile.jpg';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,7 +6,6 @@ import { addInfo } from '../../../redux/user/reducer';
 
 const ProfileImage = () => {
     const dispatch = useDispatch();
-    const userImg = useSelector((state) => state.user.user.img);
     const [img, setImg] = useState(null);
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -19,16 +18,19 @@ const ProfileImage = () => {
         }
     };
     useEffect(() => {
-        const imgLocalStorage = JSON.parse(localStorage.getItem('img'));
+        const imgLocalStorage = JSON.parse(localStorage.getItem('img') || null);
         if (imgLocalStorage) {
             setImg(imgLocalStorage);
         }
-    }, [setImg, img]);
+    }, [setImg]);
+
     return (
         <div className={styles.content}>
-            {img && <img src={img} alt="Uploaded" className={styles.img} />}
-
-            <input type="file" onChange={handleImageChange} />
+            {img && <img src={img.img} alt="Ваша автарка)" className={styles.img} />}
+            <label className={styles.label}>
+                Выбрать фото
+                <input type="file" onChange={handleImageChange} />
+            </label>
         </div>
     );
 };

@@ -15,13 +15,13 @@ const userSlice = createSlice({
             state.user = { ...action.payload };
             localStorage.setItem('user', JSON.stringify(state.user));
         },
-        deleteUser: (state, action) => {
+        deleteUser: (state) => {
             state.user = {};
             localStorage.setItem('user', JSON.stringify(state.user));
         },
         addInfo: (state, action) => {
             state.user = { ...state.user, img: action.payload };
-            localStorage.setItem('img', JSON.stringify(state.user.img));
+            localStorage.setItem('img', JSON.stringify(state.user));
         },
     },
 });
