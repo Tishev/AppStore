@@ -34,3 +34,18 @@
     justify-content: space-between;
     gap: 10px;
 }
+.btn {
+    display: inline-block;
+    padding: 15px 0;
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    transition: all 400ms ease-in;
+    &:hover {
+        opacity: 0.9;
+    }
+}

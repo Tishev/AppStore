@@ -23,9 +23,13 @@ const userSlice = createSlice({
             state.user = { ...state.user, img: action.payload };
             localStorage.setItem('img', JSON.stringify(state.user));
         },
+        addAddress: (state, action) => {
+            state.user.address = { ...state.user.address, ...action.payload };
+            localStorage.setItem('address', JSON.stringify(state.user.address));
+        },
     },
 });
 
-export const { addInfo, createUser, deleteUser, getUser } = userSlice.actions;
+export const { addAddress, addInfo, createUser, deleteUser, getUser } = userSlice.actions;
 
 export default userSlice.reducer;

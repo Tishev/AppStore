@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Order.module.css';
 import InputOrder from '../UI/InputOrder';
 import { CloseOutlined } from '@mui/icons-material';
@@ -9,6 +9,12 @@ import { clearCart } from '../../redux/cart/reducer.js';
 const Order = ({ closeHandle, setSuccess }) => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.cart.itemsInCart);
+    const [addressFromLS, setAddressFromLS] = useState(null);
+    useEffect(() => {
+        const address = JSON.parse(localStorage.getItem('address'));
+        setAddressFromLS(address);
+    }, []);
+    console.log(addressFromLS);
     const [formData, setFormData] = useState({
         product: items,
         address: '',
@@ -94,7 +100,9 @@ const Order = ({ closeHandle, setSuccess }) => {
                     nameInput="address"
                     valueInput={formData.address}
                     handleInput={handleChange}
-                    placeholderInput="Введите адрес (Область, город, улица)"
+                    placeholderInput={
+                        addressFromLS ? addressFromLS.city : 'Введите адрес (Область, город, улица)'
+                    }
                 />
             </label>
 
@@ -108,7 +116,7 @@ const Order = ({ closeHandle, setSuccess }) => {
                         nameInput="zip"
                         valueInput={formData.zip}
                         handleInput={handleChange}
-                        placeholderInput={'Индекс'}
+                        placeholderInput={addressFromLS ? addressFromLS.ZIP : 'Индекс'}
                     />
                 </label>
                 <label style={{ display: 'flex', flexDirection: 'column' }}>
@@ -120,7 +128,7 @@ const Order = ({ closeHandle, setSuccess }) => {
                         nameInput="houseNumber"
                         valueInput={formData.houseNumber}
                         handleInput={handleChange}
-                        placeholderInput={'Дом'}
+                        placeholderInput={addressFromLS ? addressFromLS.home : 'Дом'}
                     />
                 </label>
             </div>
@@ -146,7 +154,7 @@ const Order = ({ closeHandle, setSuccess }) => {
                         nameInput="apartment"
                         valueInput={formData.apartment}
                         handleInput={handleChange}
-                        placeholderInput={'Кв.'}
+                        placeholderInput={addressFromLS ? addressFromLS.flat : 'Кв.'}
                     />
                 </label>
                 <label style={{ display: 'flex', flexDirection: 'column' }}>

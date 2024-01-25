@@ -10,7 +10,6 @@ const Header = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
     const userLocal = JSON.parse(localStorage.getItem('user'));
-    console.log(userLocal);
     return (
         <div className={styles.header}>
             <div className="container">

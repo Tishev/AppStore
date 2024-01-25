@@ -1,11 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styles from './ProfileInfo.module.scss';
 import ProfileImage from './ProfileImage/ProfileImage';
 import InputProfile from './InputProfile/InputProfile';
+import { useDispatch } from 'react-redux';
+import { addAddress } from '../../redux/user/reducer';
 const ProfileInfo = ({ user }) => {
+    const dispatch = useDispatch();
     const [valueZIP, setValueZIP] = useState('');
     const [valueCity, setValueCity] = useState('');
+    const [valueStreet, setValueStreet] = useState('');
+    const [valueHome, setValueHome] = useState('');
+    const [valueBuild, setValueBuild] = useState('');
+    const [valueFlat, setValueFlat] = useState('');
+    const [address, setAddress] = useState({});
+    useEffect(() => {
+        const addressLS = JSON.parse(localStorage.getItem('address'));
+        setAddress(addressLS);
+    }, [addAddress]);
+
     const handleChangeZIP = (e) => {
         const inputValue = e.target.value;
         // Проверяем, является ли ввод числом и не превышает ли он 6 цифр
@@ -23,6 +36,47 @@ const ProfileInfo = ({ user }) => {
             alert('в этом поле может содержаться только буквы');
         }
     };
+    const handleChangeStreet = (e) => {
+        const inputValue = e.target.value;
+        setValueStreet(inputValue);
+    };
+    const handleChangeHome = (e) => {
+        const inputValue = e.target.value;
+        if (/^[0-9]{0,6}$/.test(inputValue)) {
+            setValueHome(inputValue);
+        } else {
+            alert('в этом поле могут содержаться только цифры');
+        }
+    };
+    const handleChangeBuild = (e) => {
+        const inputValue = e.target.value;
+        if (/^[0-9-]{0,6}$/.test(inputValue)) {
+            setValueBuild(inputValue);
+        } else {
+            alert('в этом поле могут содержаться только цифры');
+        }
+    };
+    const handleChangeFlat = (e) => {
+        const inputValue = e.target.value;
+        if (/^[0-9]{0,6}$/.test(inputValue)) {
+            setValueFlat(inputValue);
+        } else {
+            alert('в этом поле могут содержаться только цифры');
+        }
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const address = {
+            ZIP: valueZIP,
+            city: valueCity,
+            street: valueStreet,
+            home: valueHome,
+            build: valueBuild,
+            flat: valueFlat,
+        };
+        dispatch(addAddress(address));
+    };
     return (
         <div className={styles.content}>
             <ProfileImage />
@@ -30,35 +84,67 @@ const ProfileInfo = ({ user }) => {
                 <h2>Ваш email:</h2>
                 <p>{user}</p>
                 <h2>Ваш адрес:</h2>
-                <form className={styles.form}>
+                <form onSubmit={handleSubmit} className={styles.form}>
                     <label className={styles.label}>
                         Ваш индекс:
-                        <InputProfile type={'text'} value={valueZIP} onChange={handleChangeZIP} />
+                        <InputProfile
+                            placeholder={address.ZIP}
+                            type={'text'}
+                            value={valueZIP}
+                            onChange={handleChangeZIP}
+                        />
                     </label>
                     <label className={styles.label}>
                         Ваш город:
-                        <InputProfile type={'text'} value={valueCity} onChange={handleChangeCity} />
+                        <InputProfile
+                            placeholder={address.city}
+                            type={'text'}
+                            value={valueCity}
+                            onChange={handleChangeCity}
+                        />
                     </label>
                     <label className={styles.label}>
                         Ваша улица:
-                        <InputProfile type={'text'} />
+                        <InputProfile
+                            placeholder={address.street}
+                            type={'text'}
+                            value={valueStreet}
+                            onChange={handleChangeStreet}
+                        />
                     </label>
                     <div className={styles.miniLabel}>
                         <label className={styles.label}>
                             Ваш номер дома:
-                            <InputProfile type={'text'} />
+                            <InputProfile
+                                placeholder={address.home}
+                                type={'text'}
+                                value={valueHome}
+                                onChange={handleChangeHome}
+                            />
                         </label>
                         <label className={styles.label}>
                             Ваш номер строения
-                            <InputProfile type={'text'} />
+                            <InputProfile
+                                placeholder={address.build}
+                                type={'text'}
+                                value={valueBuild}
+                                onChange={handleChangeBuild}
+                            />
                         </label>
                         <label className={styles.label}>
                             Ваш номер квартиры:
-                            <InputProfile type={'text'} />
+                            <InputProfile
+                                placeholder={address.flat}
+                                type={'text'}
+                                value={valueFlat}
+                                onChange={handleChangeFlat}
+                            />
                         </label>
                     </div>
 
-                    <button>Сохранить</button>
+                    <button type="submit" className={styles.btn}>
+                        Сохранить
+                    </button>
                 </form>
             </div>
         </div>
