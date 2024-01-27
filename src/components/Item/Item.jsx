@@ -7,7 +7,7 @@ const Item = ({ item }) => {
     return (
         <div className={styles.item}>
             <Link to={paths.product + '/' + item.id}>
-                <img className={styles.img} src={item.img} alt="photo" />
+                <img className={styles.img} src={item.img.img1} alt="photo" />
                 <h2 className={styles.text}>{item.name}</h2>
                 <p className={styles.text}>{item.price} руб.</p>
             </Link>

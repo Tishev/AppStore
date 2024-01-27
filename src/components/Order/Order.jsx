@@ -10,11 +10,6 @@ const Order = ({ closeHandle, setSuccess }) => {
     const dispatch = useDispatch();
     const items = useSelector((state) => state.cart.itemsInCart);
     const [addressFromLS, setAddressFromLS] = useState(null);
-    useEffect(() => {
-        const address = JSON.parse(localStorage.getItem('address'));
-        setAddressFromLS(address);
-    }, []);
-    console.log(addressFromLS);
     const [formData, setFormData] = useState({
         product: items,
         address: '',
@@ -25,6 +20,21 @@ const Order = ({ closeHandle, setSuccess }) => {
         entrance: '',
         floor: '',
     });
+    useEffect(() => {
+        const addressLS = JSON.parse(localStorage.getItem('address'));
+        setAddressFromLS(addressLS);
+        if (addressLS) {
+            setFormData((prevData) => ({
+                ...prevData,
+                address: addressLS.city,
+                zip: addressLS.ZIP,
+                houseNumber: addressLS.home,
+                buildingNumber: addressLS.build,
+                apartment: addressLS.flat,
+            }));
+        }
+    }, []);
+    console.log(addressFromLS);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -100,9 +110,7 @@ const Order = ({ closeHandle, setSuccess }) => {
                     nameInput="address"
                     valueInput={formData.address}
                     handleInput={handleChange}
-                    placeholderInput={
-                        addressFromLS ? addressFromLS.city : 'Введите адрес (Область, город, улица)'
-                    }
+                    placeholderInput={'Введите адрес (Область, город, улица)'}
                 />
             </label>
 
@@ -116,7 +124,7 @@ const Order = ({ closeHandle, setSuccess }) => {
                         nameInput="zip"
                         valueInput={formData.zip}
                         handleInput={handleChange}
-                        placeholderInput={addressFromLS ? addressFromLS.ZIP : 'Индекс'}
+                        placeholderInput={'Индекс'}
                     />
                 </label>
                 <label style={{ display: 'flex', flexDirection: 'column' }}>
@@ -128,7 +136,7 @@ const Order = ({ closeHandle, setSuccess }) => {
                         nameInput="houseNumber"
                         valueInput={formData.houseNumber}
                         handleInput={handleChange}
-                        placeholderInput={addressFromLS ? addressFromLS.home : 'Дом'}
+                        placeholderInput={'Дом'}
                     />
                 </label>
             </div>
@@ -154,7 +162,7 @@ const Order = ({ closeHandle, setSuccess }) => {
                         nameInput="apartment"
                         valueInput={formData.apartment}
                         handleInput={handleChange}
-                        placeholderInput={addressFromLS ? addressFromLS.flat : 'Кв.'}
+                        placeholderInput={'Кв.'}
                     />
                 </label>
                 <label style={{ display: 'flex', flexDirection: 'column' }}>
